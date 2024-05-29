@@ -1,5 +1,6 @@
 const app = require('./src/server');
 const os = require('os');
+const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +18,17 @@ Object.keys(networkInterfaces).forEach((interfaceName) => {
 if (!ipAddress) {
     ipAddress = 'localhost';
 }
+
+mongoose.connect('mongodb://localhost:27017/sua_basedados', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => {
+    console.log('MongoDB connected');
+})
+.catch((err) => {
+    console.error('MongoDB connection error:', err);
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://${ipAddress}:${PORT}`);
