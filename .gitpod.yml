@@ -1,0 +1,4 @@
+ports:
+  - port: 3000-8082
+    onOpen: ignore
+    visibility: public
