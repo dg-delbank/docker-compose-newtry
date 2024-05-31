@@ -2,7 +2,7 @@ version: "3"
 services:
   app1:
     build: 
-      context: ./api1
+      context: .
     ports:
       - "3000:3000"
     depends_on:
