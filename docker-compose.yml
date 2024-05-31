@@ -27,10 +27,12 @@ services:
     networks:
       - uaifi
 
-  networks:
-  uaifi:
-
   mongo:
     image: mongo
     ports:
       - "27017:27017"
+    networks:
+      - uaifi
+      
+networks:
+uaifi:
