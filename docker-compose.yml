@@ -12,9 +12,10 @@ services:
 
   app2:
     build: 
-      context: 
-        git: "https://github.com/dg-delbank/docker-compose-newtry-addon.git"
+      context: .
       dockerfile: Dockerfile
+      args:
+        - GIT_URL=https://github.com/dg-delbank/docker-compose-newtry-addon.git
     ports:
       - "3001:3000"  
     depends_on:
