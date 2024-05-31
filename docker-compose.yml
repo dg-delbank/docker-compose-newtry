@@ -33,6 +33,6 @@ services:
       - "27017:27017"
     networks:
       - uaifi
-      
+
 networks:
-uaifi:
+  uaifi:
