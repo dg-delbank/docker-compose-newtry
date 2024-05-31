@@ -1,11 +1,27 @@
 version: "3"
 services:
-  app:
-    build: .
+  app1:
+    build: 
+      context: ./api1
     ports:
       - "3000:3000"
     depends_on:
       - mongo
+    environment:
+      MONGO_URL: "mongodb://mongo:27017/data"
+
+  app2:
+    build: 
+      context: 
+        git: "https://github.com/dg-delbank/docker-compose-newtry-addon.git"
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"  
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URL: "mongodb://mongo:27017/data"
+
   mongo:
     image: mongo
     ports:
